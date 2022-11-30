@@ -9,7 +9,10 @@ function App() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  
+  const findShow = async (tvShow) => {
+    console.log(tvShow)
+  }
+
   const findMovie = async (movieTitle) => {
     if(!movieTitle || movieTitle === '') { 
       alert("You have to enter in a movie title")
@@ -26,7 +29,7 @@ function App() {
   return (
     <div>
       <Header />
-      <SearchInput getMovieTitle={findMovie}/>
+      <SearchInput getMovieTitle={findMovie} getTvShow={findShow}/>
       {isLoading ? <h4>...LOADING</h4> : <MovieList searchResults={movieList} />}
     </div>
   );
